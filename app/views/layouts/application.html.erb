@@ -9,6 +9,10 @@
 <body>
 
   <nav class="navbar navbar-default">
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <div class="container-fluid">
       <div class="navbar-header">
         <%= link_to "Blocitoff", root_path, class: "navbar-brand"  %>
@@ -27,14 +31,7 @@
     </div>
   </nav>
 
-  <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-
-  <div class="container">
     <%= yield %>
-  </div>
 
 </body>
 </html>

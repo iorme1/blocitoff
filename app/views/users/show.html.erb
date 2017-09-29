@@ -1,4 +1,14 @@
-<h2>User Profile Information:</h2>
-<ul>
-  <li> Email: <%= current_user.email %> </li>
-</ul>
+<div class="container">
+  <div class="page-header">
+    <h3>User Profile Information:</h3>
+  </div>
+
+  <div class="row">
+    <p> Email: <strong> <%= @user.email %> </strong></p> <br />
+   <div class="cold-md-8">
+     <p>Create New Item: </p> <br />
+     <%= render 'items/form', locals: {item: @item} %> <br />
+     <p> Current Items: </p>
+   <%= render 'items/item' %>
+   </div>
+ </div>
