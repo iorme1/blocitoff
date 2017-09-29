@@ -8,7 +8,33 @@
 </head>
 <body>
 
-<%= yield %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "Blocitoff", root_path, class: "navbar-brand"  %>
+      </div>
+
+      <ul class="nav navbar-nav pull-right">
+        <li> <%= link_to "Sign Up", new_user_registration_path %></li>
+        <% if user_signed_in? %>
+          <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %></li>
+          <li> <strong> <%= current_user.email %> </strong> </li>
+        <% else %>
+          <li> <%= link_to "Sign In", new_user_session_path  %> </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
