@@ -1,9 +1,14 @@
-<ul>
-<% current_user.items.each do |item| %>
-  <li><%= item.name %> | <span>
-    <%= link_to item.name, [@user, item], method: :delete, class: 'glyphicon glyphicon-ok' %>
-  | <%= distance_of_time_in_words(Time.now, item.created_at + 7.days) +
-  " left" %></span>
-</li>
-<% end %>
-</ul>
+<table class="table">
+  <tr>
+    <th>TO-DO ITEMS:</th>
+    <th>CLICK LINKS BELOW TO DELETE TO-DO ITEM:</th>
+    <th>TIME REMAINING BEFORE ITEM DELETION:</th>
+  </tr>
+  <% current_user.items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= link_to item.name, [@user, item], method: :delete, class: 'glyphicon glyphicon-ok' %></td>
+      <td><%= distance_of_time_in_words(Time.now, item.created_at + 7.days) +  " left" %></td>
+    </tr>
+  <% end %>
+</table>
