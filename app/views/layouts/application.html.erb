@@ -8,8 +8,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-default">
-    <%= render 'layouts/messages' %>
+  <nav class="navbar navbar-default page-nav">
       <div class="navbar-header">
         <%= link_to "To-do List", root_path, class: "navbar-brand"  %>
       </div>
@@ -27,8 +26,9 @@
         </ul>
       </div>
     </nav>
+    <%= render 'layouts/messages' %>
 
-      <%= yield %>
+    <%= yield %>
 
 
 </body>
