@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blocitoff</title>
+  <title>To-do List App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,14 +11,14 @@
   <nav class="navbar navbar-default">
     <%= render 'layouts/messages' %>
       <div class="navbar-header">
-        <%= link_to "Blocitoff", root_path, class: "navbar-brand"  %>
+        <%= link_to "To-do List", root_path, class: "navbar-brand"  %>
       </div>
       <div class="container">
         <ul class="nav navbar-nav pull-right">
           <li> <%= link_to "Sign Up", new_user_registration_path %></li>
           <% if user_signed_in? %>
             <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %>
-             <strong> <%= current_user.email %> </strong> 
+             <strong> <%= current_user.email %> </strong>
             </li>
             <li> </li>
           <% else %>
