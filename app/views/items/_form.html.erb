@@ -1,6 +1,5 @@
-<%= form_for [@user, @item] do |f| %>
+<%= form_for [current_user, @item] do |f| %>
   <%= f.label :name, "Add To-do Item" %>
   <%= f.text_field :name %>
-
-  <%= f.submit %>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
 <% end %>

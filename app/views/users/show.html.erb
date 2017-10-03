@@ -1,12 +1,24 @@
-<div class="container">
+<div class="row">
   <div class="page-header">
     <h3>User Profile Information:</h3>
   </div>
 
-  <div class="row">
-    <p> Email: <strong> <%= @user.email %> </strong></p> <br />
-   <div class="cold-md-8">
-     <%= render 'items/form', locals: {item: @item} %> <br />
-     <%= render 'items/item' %>
-   </div>
- </div>
+  <p>Email: <strong> <%= current_user.email %> </strong></p>
+
+  <div class="cold-md-8">
+    <%= render 'items/form' %>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>TO-DO ITEMS:</th>
+          <th>DONE!</th>
+          <th>TIME REMAINING BEFORE ITEM DELETION:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @items %>
+      </tbody>
+    </table>
+  </div>
+</div>

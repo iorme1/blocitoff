@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
 
-
   def create
     @item = current_user.items.new(items_params)
 
@@ -10,6 +9,16 @@ class ItemsController < ApplicationController
     else
       flash[:alert] = "To-do item was not saved. Please try again."
       redirect_to root_path
+    end
+  end
+
+  def complete
+    @user = User.find(params[:user_id])
+    @item = @user.items.find(params[:id])
+    if @item.completed_at
+      @item.update(completed_at: nil)
+    else
+      @item.touch(:completed_at)
     end
   end
 

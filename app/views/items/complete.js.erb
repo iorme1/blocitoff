@@ -1,0 +1,6 @@
+<% if @item.completed_at %>
+  $("#item_<%= @item.id %>").addClass('complete');
+<% else %>
+  $("#item_<%= @item.id %>").removeClass('complete');
+<% end %>
+
