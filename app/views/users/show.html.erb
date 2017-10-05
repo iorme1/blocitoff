@@ -1,12 +1,27 @@
-<div class="container">
+<div class="row">
   <div class="page-header">
-    <h3>User Profile Information:</h3>
+    <h2>To-do List For: </h2>
+    <h5> <strong><%= current_user.email %></strong> </h5>
   </div>
 
-  <div class="row">
-    <p> Email: <strong> <%= @user.email %> </strong></p> <br />
-   <div class="cold-md-8">
-     <%= render 'items/form', locals: {item: @item} %> <br />
-     <%= render 'items/item' %>
-   </div>
- </div>
+
+  <div class="cold-md-8 col-sm-12">
+    <%= render 'items/form' %>
+    <div class="pull-right">
+      <%= link_to "Remove Completed Items", user_item_path(current_user, @items),
+       class: 'btn btn-warning', method: :delete %>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>TO-DO ITEMS:</th>
+          <th>COMPLETED</th>
+          <th>TIME REMAINING BEFORE ITEM DELETION:</th>
+        </tr>
+      </thead>
+      <tbody class='items'>
+        <%= render @items %>
+      </tbody>
+    </table>
+  </div>
+</div>

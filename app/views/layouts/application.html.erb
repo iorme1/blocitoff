@@ -8,27 +8,30 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-default">
-    <%= render 'layouts/messages' %>
-      <div class="navbar-header">
-        <%= link_to "To-do List", root_path, class: "navbar-brand"  %>
-      </div>
-      <div class="container">
-        <ul class="nav navbar-nav pull-right">
-          <li> <%= link_to "Sign Up", new_user_registration_path %></li>
-          <% if user_signed_in? %>
-            <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %>
-             <strong> <%= current_user.email %> </strong>
-            </li>
-            <li> </li>
-          <% else %>
-            <li> <%= link_to "Sign In", new_user_session_path  %> </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+  <nav class="navbar navbar-default page-nav">
+    <div class="navbar-header">
+      <%= link_to "To-do List", root_path, class: "navbar-brand"  %>
+    </div>
+    <div class="container">
+      <ul class="nav navbar-nav pull-right">
+        <li> <%= link_to "Sign Up", new_user_registration_path %></li>
+        <% if user_signed_in? %>
+          <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %>
+          <strong> <%= current_user.email %> </strong>
+       </li>
+         <% else %>
+           <li> <%= link_to "Sign In", new_user_session_path  %> </li>
+         <% end %>
+      </ul>
+    </div>
+ </nav>
+ <div class="flash">
+   <%= render 'layouts/messages' %>
+ </div>
 
-      <%= yield %>
+ <div class="container">
+   <%= yield %>
+ </div>
 
 
 </body>
