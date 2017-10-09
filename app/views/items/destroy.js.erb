@@ -1,0 +1,11 @@
+<% @items.each do |item| %>
+    $("#item_<%= item.id %>").addClass('hide');
+<% end %>
+<% @items.destroy_all %>
+<% if current_user.items.count >= 1 %>
+  $('.flash').html('<div class="alert alert-success">"Nice work, <%= current_user.items.count %> more to go!"</div>');
+<% elsif current_user.items.count < 1 %>
+  $('.flash').html('<div class="alert alert-success">"You have completed all of your To-do items. Congratulations!"</div>');
+<% else %>
+  $('.flash').html('<div class="alert alert-error">"To-do item was not deleted. Please try again."</div>');
+<% end %>

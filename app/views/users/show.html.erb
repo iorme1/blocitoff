@@ -9,7 +9,7 @@
     <%= render 'items/form' %>
     <div class="pull-right">
       <%= link_to "Remove Completed Items", user_item_path(current_user, @items),
-       class: 'btn btn-warning', method: :delete %>
+       class: 'btn btn-warning', method: :delete, remote: true %>
     </div>
     <table class="table">
       <thead>
