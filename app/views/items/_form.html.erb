@@ -1,5 +1,7 @@
 <%= form_for [current_user, @item], remote: true do |f| %>
   <%= f.label :name, "Add To-do Item" %>
   <%= f.text_field :name %>
+  <%= f.label :time, "Time left in days" %>
+  <%= f.select :time, (1..7) %>
   <%= f.submit 'Save', class: 'btn btn-primary' %>
 <% end %>

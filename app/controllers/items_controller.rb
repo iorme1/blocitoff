@@ -33,6 +33,6 @@ class ItemsController < ApplicationController
   private
 
   def items_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name, :time)
   end
 end

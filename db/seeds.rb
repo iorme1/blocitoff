@@ -10,7 +10,8 @@ users = User.all
 50.times do
   Item.create!(
     name: Faker::Lorem.sentence,
-    user: users.sample
+    user: users.sample,
+    time: rand(1..7)
   )
 end
 
