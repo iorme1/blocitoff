@@ -1,5 +1,5 @@
 <%= content_tag(:tr, id: "item_#{item.id}", class: "#{'complete' if item.completed_at}") do %>
   <td><strong><%= item.name %></strong></td>
   <td><%= check_box_tag dom_id(item), '', item.completed_at, data: { url: user_complete_item_path(current_user, item), class: 'checkbox', method: :patch, remote: true } %></td>
-  <td class="<%='red' if item.time == 1 %>"><strong><%= distance_of_time_in_words( Time.now, Time.now + (item.time * 82944) )  %></strong></td>
+  <td class="<%='red' if item.time == 1 %>"><strong><%= distance_of_time_in_words( Time.now, Time.now + (item.time * 86400) )  %></strong></td>
 <% end %>
