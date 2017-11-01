@@ -1,5 +1,6 @@
 <% @items.each do |item| %>
     $("#item_<%= item.id %>").addClass('hide');
+    blocmetrics.report("To-do Item Finished")
 <% end %>
 <% @items.destroy_all %>
 <% if current_user.items.count >= 1 %>
